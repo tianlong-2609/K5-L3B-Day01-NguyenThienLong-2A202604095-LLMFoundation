@@ -17,7 +17,7 @@
 ## 2. Kết quả chính
 
 *Chép bảng so sánh cuối Phần 5 (F1 test, F1 SUB 40, p95 ms/tin, USD/1k tin) của chính bạn.*
-<img width="873" height="395" alt="image" src="https://github.com/user-attachments/assets/73c8ea25-6fd3-4751-ac98-f77375a51074" />
+
 
 ## 3. Dự đoán và thực tế
 
