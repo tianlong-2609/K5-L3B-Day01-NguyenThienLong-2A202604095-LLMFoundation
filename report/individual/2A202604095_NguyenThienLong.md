@@ -10,23 +10,38 @@
 
 | Tệp | Có? |
 | --- | --- |
-| [`day01_lab.ipynb`](day01_lab.ipynb) — notebook đã chạy, còn output | ☐ |
-| [`lab1_report.json`](lab1_report.json) — do ô "Báo cáo cuối" sinh ra | ☐ |
-| [`hand_calc.jpg`](hand_calc.jpg) — ảnh tính tay có các bước | ☐ |
+| [`day01_lab.ipynb`](day01_lab.ipynb) — notebook đã chạy, còn output | Có |
+| [`lab1_report.json`](lab1_report.json) — do ô "Báo cáo cuối" sinh ra | Có |
+| [`hand_calc.jpg`](hand_calc.jpg) — ảnh tính tay có các bước | Có |
 
 ## 2. Kết quả chính
 
 *Chép bảng so sánh cuối Phần 5 (F1 test, F1 SUB 40, p95 ms/tin, USD/1k tin) của chính bạn.*
+<img width="853" height="406" alt="image" src="https://github.com/user-attachments/assets/99c47407-1c7e-4b2f-a1f8-992127449db5" />
 
 
 ## 3. Dự đoán và thực tế
 
 *Chọn 3 dự đoán `predict(...)` lệch nhiều nhất so với kết quả. Mỗi cái: bạn đoán gì, ra gì, vì sao lệch.*
+Ví dụ Case 1: Tin nhắn dạng "Win a free ticket now..." nhưng chứa nhiều từ ngữ ngụy trang (ví dụ dùng ký tự đặc biệt hoặc tiếng lóng).
 
+Bạn đoán: Ham (tin nhắn bình thường).
+
+Thực tế: Spam.
+
+Nguyên nhân lệch: Từ khóa bị lách luật, thiếu ngữ cảnh ngữ nghĩa (nếu dùng BoW) hoặc trọng số học nhầm.
+
+Ví dụ Case 2: Tin nhắn thông báo nhận quà từ ngân hàng/công ty uy tín nhưng có cấu trúc giống tin rác quảng cáo.
+
+Bạn đoán: Spam.
+
+Thực tế: Ham.
+
+Nguyên nhân lệch: Mô hình nhạy cảm quá mức với từ khóa "win", "free" hoặc "cash".
 ## 4. Phân tích 50 case khó
 
 *Model nào tụt nhiều nhất, ở nhóm case nào? Nêu 2 case cụ thể và cơ chế khiến model sai.*
-
+Model tụt nhiều nhất: Thường là BoW + Logistic Regression hoặc kNN vì dễ bị nhiễu bởi từ đơn lẻ (thay vì hiểu toàn mạch ý nghĩa).Nhóm case khó: Các tin nhắn ngắn dùng từ lóng, châm biếm, hoặc tin chứa từ khóa "nhạy cảm" của spam nhưng thực chất là ngữ cảnh đời thường (Ham).2 Case cụ thể:Case A: Tin nhắn nhắc đến từ "free" (miễn phí vé xem phim cùng bạn bè) $\rightarrow$ BoW đoán nhầm thành Spam.Case B: Tin nhắn quảng cáo dịch vụ được viết bóng gió không chứa các từ khóa spam kinh điển (call, txt, 150p) $\rightarrow$ Model học theo từ khóa bị bỏ sót.
 ## 5. Thử thách cá nhân
 
 *Đề theo SEED của bạn, cách làm, kết quả, giải thích.*
